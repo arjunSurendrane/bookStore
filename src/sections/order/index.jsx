@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import Drawer from "../../components/Drawer";
-import OrderDetails from "./orderDetails";
+import OrderDetails from "./OrderDetails";
 import { useState } from "react";
 import SearchBar from "../../components/SearchBar";
 
