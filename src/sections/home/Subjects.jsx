@@ -6,6 +6,7 @@ import useSubjectData from "../../hooks/useSubjectData";
 export default function Subjects() {
   const { updateSubject } = useSubjectData();
   const { subject } = useSelector((state) => state.subject);
+
   return (
     <div className="flex flex-wrap  my-5 ">
       {filterButtons.map((data) => (

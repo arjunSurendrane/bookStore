@@ -1,3 +1,4 @@
 export const PATH_AUTH = {
-  login: "/",
+  home: "/",
+  order: "/order",
 };

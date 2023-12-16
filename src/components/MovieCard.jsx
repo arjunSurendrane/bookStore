@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import useCart from "../hooks/useCart";
 import useTrucate from "../hooks/useTruncate";
 
+const price = Math.floor(Math.random() * 900) + 100;
 const MovieCard = (props) => {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
-  const { isAddedToCart, handleAddToCart } = useCart(props);
+  const { isAddedToCart, handleAddToCart } = useCart({ ...props, price });
   const { title, authors, publishedYear, coverId } = props;
   // Truncate long titles to fit within a specified length
   const truncatedTitle = useTrucate(title, 10);
@@ -13,7 +14,7 @@ const MovieCard = (props) => {
 
   return (
     <div className="rounded-md p-4 shadow-lg">
-      <div className="bg-gray-300 h-48 w-48 overflow-hidden rounded-md shadow-md">
+      <div className="bg-gray-300 h-48  overflow-hidden rounded-md shadow-md">
         <img
           src={`https://covers.openlibrary.org/b/id/${coverId}-M.jpg`}
           alt="banner"
@@ -39,6 +40,7 @@ const MovieCard = (props) => {
         <p className="text-sm text-gray-600 font-semibold">
           📆 {publishedYear}
         </p>
+        <p className="text-sm text-gray-600 font-semibold">💵 ₹{price}</p>
         {isAddedToCart ? (
           <p
             className="text-2xl mt-2"
@@ -67,7 +69,7 @@ MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   authors: PropTypes.object.isRequired,
   publishedYear: PropTypes.number.isRequired,
-  coverId: PropTypes.string.isRequired,
+  coverId: PropTypes.number.isRequired,
 };
 
 export default MovieCard;

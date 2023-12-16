@@ -11,7 +11,6 @@ const fetchBooksApi = async (subject) => {
 export const fetchBooks = createAsyncThunk(
   "movie/fetchBooks",
   async ({ subject }) => {
-    console.log({ subject });
     const data = await fetchBooksApi(subject);
     return data.works;
   }

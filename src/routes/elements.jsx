@@ -9,5 +9,4 @@ const Loadable = (Component) => (props) =>
   );
 
 export const HomePage = Loadable(lazy(() => import("../pages/Home")));
-export const CartPage = Loadable(lazy(() => import("../pages/Cart")));
 export const OrderPage = Loadable(lazy(() => import("../pages/Order")));

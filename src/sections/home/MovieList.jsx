@@ -1,14 +1,20 @@
 /* eslint-disable react/no-unknown-property */
 import { useSelector } from "react-redux";
 import MovieCard from "../../components/MovieCard";
-import useMovieData from "../../hooks/useMovieData";
+import useBooksData from "../../hooks/useBooksData";
+import toast from "react-hot-toast";
 
 export default function MovieList() {
-  useMovieData();
+  useBooksData();
 
   const { bookList, status } = useSelector((state) => state.books);
 
+  if (status === "failed") {
+    toast.error("Something went wrong. Try again !!!");
+  }
+
   if (status === "loading") {
+    // Loading ui
     return (
       <div className="flex items-center justify-center h-[70vh]">
         <div className="spinner"></div>
@@ -19,6 +25,7 @@ export default function MovieList() {
     );
   }
 
+  // No books found
   if (!bookList.length) {
     return (
       <div className="flex items-center justify-center h-[70vh]">
@@ -29,14 +36,7 @@ export default function MovieList() {
             stroke="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 9v6m0 0v6m0-6h6m-6 0H6"
-            ></path> */}
-          </svg>
+          ></svg>
           <p className="text-xl font-semibold text-gray-700">
             Oops! No books found.
           </p>
@@ -46,8 +46,9 @@ export default function MovieList() {
     );
   }
 
+  // list all books
   return (
-    <div className="flex flex-wrap justify-around gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {bookList.map((data) => (
         <MovieCard
           key={data.cover_id}

@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { CartPage, HomePage, OrderPage } from "./elements";
+import { HomePage, OrderPage } from "./elements";
 import LayoutWithHeader from "../components/LayoutWithHeader";
 
 const Body = () => {
@@ -11,10 +11,6 @@ const Body = () => {
         {
           path: "/",
           element: <HomePage />,
-        },
-        {
-          path: "cart",
-          element: <CartPage />,
         },
         {
           path: "order",
