@@ -9,7 +9,6 @@ const MovieCard = (props) => {
   const { isAddedToCart, handleAddToCart } = useCart({ ...props, price });
   const { title, authors, publishedYear, coverId } = props;
   // Truncate long titles to fit within a specified length
-  const truncatedTitle = useTrucate(title, 10);
   const truncatedAuthorName = useTrucate(authors.name, 20);
 
   return (
@@ -27,7 +26,7 @@ const MovieCard = (props) => {
           onMouseOut={() => setTooltipVisibility(false)}
           className="text-xl font-bold font-serif text-black relative"
         >
-          {truncatedTitle}
+          {title}
           {isTooltipVisible && (
             <span className="absolute text-sm bottom-full left-1/2 transform -translate-x-1/2 p-2 bg-gray-800 text-white rounded-md">
               {title}

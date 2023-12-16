@@ -1,9 +1,12 @@
+import ErrorBoundary from "../components/Errorboundary";
 import OrderSections from "../sections/order";
 
 export default function Order() {
   return (
     <div>
-      <OrderSections />
+      <ErrorBoundary>
+        <OrderSections />
+      </ErrorBoundary>
     </div>
   );
 }

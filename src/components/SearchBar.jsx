@@ -1,4 +1,9 @@
-export default function SearchBar() {
+import PropTypes from "prop-types";
+
+export default function SearchBar({ searchString, setSearchString }) {
+  const handleSearchChange = (e) => {
+    setSearchString(e.target.value);
+  };
   return (
     <div>
       {/* Search Bar */}
@@ -6,11 +11,16 @@ export default function SearchBar() {
         <input
           type="text"
           placeholder="Search..."
-          // value={searchQuery}
-          // onChange={handleSearchChange}
-          className="border  bg-gray-100 rounded-lg px-4 py-3 text-sm font-semibold mr-4 focus:outline-none"
+          value={searchString}
+          onChange={handleSearchChange}
+          className="border  bg-gray-200 rounded-lg px-4 py-3 text-sm font-semibold mr-4 focus:outline-none"
         />
       </div>
     </div>
   );
 }
+
+SearchBar.propTypes = {
+  searchString: PropTypes.string.isRequired,
+  setSearchString: PropTypes.func.isRequired,
+};

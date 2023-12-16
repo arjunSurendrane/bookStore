@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import Drawer from "../../components/Drawer";
 import OrderDetails from "./OrderDetails";
 import { useState } from "react";
-import SearchBar from "../../components/SearchBar";
 
 export default function OrderSections() {
   const { orders } = useSelector((state) => state.order);
@@ -16,7 +15,6 @@ export default function OrderSections() {
 
   return (
     <div className="mt-5 px-5">
-      <SearchBar />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 ">
         <Drawer isOpen={isOpen} setIsOpen={setIsOpen} header={"Order Details"}>
           <OrderDetails
