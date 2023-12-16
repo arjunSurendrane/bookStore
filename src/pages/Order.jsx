@@ -1,4 +1,4 @@
-import ErrorBoundary from "../components/Errorboundary";
+import ErrorBoundary from "../components/ErrorBoundary";
 import OrderSections from "../sections/order";
 
 export default function Order() {

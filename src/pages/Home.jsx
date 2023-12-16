@@ -1,4 +1,4 @@
-import ErrorBoundary from "../components/Errorboundary";
+import ErrorBoundary from "../components/ErrorBoundary";
 import HomeSections from "../sections/home";
 
 export default function Home() {
