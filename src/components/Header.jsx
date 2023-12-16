@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Drawer from "./drawer";
+import Drawer from "./Drawer";
 import CartSections from "../sections/cart";
 import { PATH_AUTH } from "../routes/path";
 

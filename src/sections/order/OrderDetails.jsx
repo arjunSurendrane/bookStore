@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 export default function OrderDetails({ orderItems = [], total }) {
   return (
@@ -33,3 +33,8 @@ export default function OrderDetails({ orderItems = [], total }) {
     </div>
   );
 }
+
+OrderDetails.propTypes = {
+  orderItems: PropTypes.array.isRequired,
+  total: PropTypes.number.isRequired,
+};

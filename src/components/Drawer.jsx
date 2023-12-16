@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function Drawer({ children, isOpen, setIsOpen, header }) {
   return (
     <main
@@ -28,3 +30,11 @@ export default function Drawer({ children, isOpen, setIsOpen, header }) {
     </main>
   );
 }
+
+// Prop validation using PropTypes
+Drawer.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  children: PropTypes.func.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  header: PropTypes.string.isRequired,
+};
